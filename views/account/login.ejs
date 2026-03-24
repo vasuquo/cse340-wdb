@@ -1,0 +1,22 @@
+<% if (title) { %>
+<h1><%= title %></h1>
+<% } else {
+  res.redirect('/')
+} %>
+
+<%- messages() %>
+<div class="account-container">
+        <form action="#" method="POST">
+            <div class="input-group">
+                <label for="account_email">Email:</label>
+                <input type="email" id="account_email" name="email" required>
+            </div>
+            <div class="input-group password-field">
+                <label for="account_password">Password:</label>
+                <input type="password" id="account_password" name="password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
+                <span id="toggler"><img src="/images/site/closed-eye.png" alt="Eye"></span>
+            </div>
+            <button type="submit">Login</button>
+            <p>No Account? <a href="/account/register">Sign-up</a></p>
+        </form>
+</div>

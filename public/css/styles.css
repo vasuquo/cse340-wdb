@@ -220,6 +220,7 @@ nav ul li a:hover {background-color: firebrick;}
   max-width: 100%;
 }
 
+
 .price-section h3 {
   margin-top: 10px;
   display: block;
@@ -267,6 +268,45 @@ span {
   font-style: italic;
 }
 
+.account-container {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;    
+    max-width: 100%;
+    margin: 20px 0;
+}
+
+form {
+    background-color:skyblue;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color:black;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.input-group input[type="text"],
+.input-group input[type="email"],
+.input-group input[type="password"] {
+    width: calc(100% - 20px); /* Adjust for padding */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
 
 button {
     background-color: navy;
@@ -280,9 +320,16 @@ button {
     margin: 15px 0;
 }
 
+form p {
+  font-size: 20px;
+}
 
 button:hover {
     background-color: #0056b3;
+}
+
+.password-field {
+  position: relative;
 }
 
 #toggler {
@@ -294,6 +341,11 @@ button:hover {
 
 #toggler img {
   width: 20px;
+}
+
+.notice {
+  margin-top: 10px;
+  margin-left: 30px;;
 }
 
 /* ========== TABLET SCREENS  ========== */
@@ -436,5 +488,3 @@ footer {
 
 
 }
-
-  
