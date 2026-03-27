@@ -61,6 +61,7 @@ app.use(static)
 // Index route
 // app.get("/", baseController.buildHome)
 app.get("/", utilities.handleErrors(baseController.buildHome))
+app.get("/inv", utilities.handleErrors(baseController.buildInventory))
 app.get("/oop", utilities.handleErrors(errorController.helloWorld))
 app.use("/inv", inventoryRoute)
 app.use("/account", accountRoute)
