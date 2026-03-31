@@ -76,16 +76,14 @@ const validate = {}
       body("inv_price")
         .trim()
         .escape()
-        .notEmpty()
-        .isLength({ min: 5 })
+        .notEmpty()      
         .withMessage("Please provide a valid price."), // on error this message is sent.
 
       // inv_miles is required and must be number
-      body("inv_moiles")
+      body("inv_miles")
         .trim()
         .escape()
-        .notEmpty()
-        .isLength({ min: 3 })
+        .notEmpty()  
         .withMessage("Please provide vehicle mileage."), // on error this message is sent.
 
       // inv_color is required and must be string

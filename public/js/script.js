@@ -1,4 +1,4 @@
-var password = document.getElementById("password");
+var password = document.getElementById("accountPassword");
 var toggler = document.querySelector("#toggler img");
 
 showHidePassword = () => {

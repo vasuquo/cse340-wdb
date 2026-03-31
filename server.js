@@ -18,6 +18,8 @@ const static = require("./routes/static")
 const inventoryRoute = require("./routes/inventoryRoute")
 const accountRoute = require("./routes/accountRoute")
 const bodyParser = require("body-parser")
+const cookieParser = require("cookie-parser")
+
 
 
 
@@ -34,6 +36,9 @@ const bodyParser = require("body-parser")
   saveUninitialized: true,
   name: 'sessionId',
 }))
+
+app.use(cookieParser())
+
 
 // Express Messages Middleware
 app.use(require('connect-flash')())

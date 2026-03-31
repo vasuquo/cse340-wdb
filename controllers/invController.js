@@ -69,22 +69,26 @@ invCont.addClassification = async function (req, res) {
   const { classification_name } = req.body
 
   const regResult = await invModel.addClassification(classification_name)
+  let classificationList = await utilities.buildClassificationList()
 
   if (regResult) {
     req.flash(
       "notice",
-      `Congratulations, you have created ${classification_name}. Proceed to add inventory.`
+      `Congratulations, you have created  ${classification_name}. Proceed to add a new inventory.`
     )
-    res.status(201).render("./inventory/add-inventory", {
-      title: "Add Inventory", nav,
+    res.status(201).render("inventory/add-inventory", {
+      title: "Add Classification", 
+      nav, classificationList,
+      errors: null,
     })
   } else {
     req.flash("notice", "Sorry, classification creation failed.")
-    res.status(501).render("./inventory/add-classification", {
-      title: "Add Classification",
-      nav,
+    res.status(501).render("inventory/add-classification", {
+      title: "Add Inventory",
+      nav, errors: null,
     })
   }
+  
 }
 
 /* ****************************************
@@ -99,16 +103,16 @@ invCont.addInventory = async function (req, res) {
   if (regResult) {
     req.flash(
       "notice",
-      `Congratulations, inventory created . Proceed to add a new classification.`
+      `Congratulations, you created inventory item ${inv_make}. Proceed to add a new classification.`
     )
-    res.status(201).render("./inventory/add-classification", {
-      title: "Add Classification", nav,
+    res.status(201).render("inventory/add-classification", {
+      title: "Add Classification", nav, errors: null,
     })
   } else {
-    req.flash("notice", "Sorry, classification creation failed.")
-    res.status(501).render("./inventory/add-inventory", {
+    req.flash("notice", "Sorry, inventory creation failed.")
+    res.status(501).render("inventory/add-inventory", {
       title: "Add Inventory",
-      nav,
+      nav, errors: null,
     })
   }
 }

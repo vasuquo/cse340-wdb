@@ -29,8 +29,8 @@ router.post("/classification",
 router.post("/vehicle", 
     inventoryValidate.inventoryRules(),
     inventoryValidate.checkInventoryData,
-//    utilities.handleErrors(invController.addInventory))
-    invController.addInventory)
+    utilities.handleErrors(invController.addInventory))
+        
 
 
 
