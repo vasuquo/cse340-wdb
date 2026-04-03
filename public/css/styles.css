@@ -309,11 +309,41 @@ form {
     font-size: 18px;
 }
 
+#classificationList {
+  width: 30%;
+}
+
+.mangmnt {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  gap: 20px;
+}
+
+#inventoryDisplay {
+  border-collapse: collapse; 
+  width: 60%;
+  font-size: 0.9em;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); 
+}
+
+#inventoryDisplay thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+#inventoryDisplay th,
+#inventoryDisplay td {
+    padding: 8px 15px;
+}
+
 .input-group input[type="text"],
 .input-group input[type="email"],
 .input-group input[type="password"],
 .input-group input[type="number"],
-.input-group select
+select
 {
     width: calc(100% - 20px); /* Adjust for padding */
     padding: 10px;

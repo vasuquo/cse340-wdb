@@ -1,5 +1,5 @@
-var password = document.getElementById("accountPassword");
-var toggler = document.querySelector("#toggler img");
+const password = document.getElementById("account_password");
+const toggler = document.querySelector("#toggler img");
 
 showHidePassword = () => {
     if (password.type == "password") {

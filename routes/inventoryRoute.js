@@ -18,6 +18,20 @@ router.get("/detail/:inventoryId", utilities.handleErrors(invController.buildInv
 // Route build view for adding new inventories
 router.get("/vehicle", utilities.handleErrors(invController.buildInventory))
 
+// Route to build management view
+router.get("/", utilities.handleErrors(invController.buildManagementView))
+
+// Get inventory for AJAX route 
+router.get("/getInventory/:classification_id", 
+//    utilities.checkAccountType,
+    utilities.handleErrors(invController.getInventoryJSON)
+)
+
+// Route to modify inventory items
+router.get("/edit/:inv_id", 
+    utilities.handleErrors(invController.editInventory))
+
+
 
 // Route to store classification data from the classification form
 router.post("/classification", 
