@@ -309,9 +309,17 @@ form {
     font-size: 18px;
 }
 
-#classificationList {
+.mangmnt select {
   width: 30%;
 }
+
+#del {
+  color: red;
+  font-weight: 500;
+  background-color: white;
+}
+  
+
 
 .mangmnt {
   display: flex;

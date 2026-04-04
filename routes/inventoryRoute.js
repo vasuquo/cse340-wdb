@@ -31,7 +31,11 @@ router.get("/getInventory/:classification_id",
 router.get("/edit/:inv_id", 
     utilities.handleErrors(invController.editInventory))
 
+// Route to delete an item from inventory
+router.get("/delete/:inv_id",
+    utilities.handleErrors(invController.deleteIView))
 
+  
 
 // Route to store classification data from the classification form
 router.post("/classification", 
@@ -44,7 +48,18 @@ router.post("/vehicle",
     inventoryValidate.inventoryRules(),
     inventoryValidate.checkInventoryData,
     utilities.handleErrors(invController.addInventory))
+
+// Route to update vehicle data
+router.post("/update",
+    inventoryValidate.inventoryRules(),
+    inventoryValidate.checkInventoryUpdateData,
+    utilities.handleErrors(invController.updateInventory)
+)    
         
+// Route to delete an item from inventory
+router.post("/delete",
+    utilities.handleErrors(invController.removeInventory)
+)    
 
 
 
