@@ -149,7 +149,7 @@ async function accountLogin(req, res) {
 async function accountLogout(req, res) {
     res.clearCookie("jwt")
     req.flash("notice", "Logged out successfully")
-    res.redirect("/account/login")
+    res.redirect("/")
 }
 
 /* ***************************
