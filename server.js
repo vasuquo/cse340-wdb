@@ -72,6 +72,7 @@ app.get("/", utilities.handleErrors(baseController.buildHome))
 app.get("/oop", utilities.handleErrors(errorController.helloWorld))
 app.use("/inv", inventoryRoute)
 app.use("/account", accountRoute)
+app.get('/favicon.ico', (req, res) => res.status(204));
 
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
