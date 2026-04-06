@@ -14,4 +14,13 @@
  </ul>
 <% } %>
 
-<p>You're logged in<</p>
+<h2>Welcome <%= fname %></h2>
+
+<a href="/account/menu">Update account information</a>
+
+<% if (type === "Admin" || type === "Employee") { %>
+  <h3>Inventory Management</h3>
+
+  <p><a href="/inv">Click to access Inventory Management</a></p>
+
+<%  } %>

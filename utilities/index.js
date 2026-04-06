@@ -153,9 +153,20 @@ Util.checkJWTToken = (req, res, next) => {
     }
     res.locals.accountData = accountData
     res.locals.loggedin = 1
+    res.locals.type = accountData.account_type
+    res.locals.account_id = accountData.account_id
+    res.locals.status = "Logout"
+    res.locals.statusUrl = "/account/logout"  
+    res.locals.fname = accountData.account_firstname
+    res.locals.user = accountData.account_firstname + " " + accountData.account_lastname
     next()
    })
  } else {
+   res.locals.status = "My Account"
+   res.locals.statusUrl = "/account/login"
+   res.locals.user = ""
+   res.locals.fname = ""
+   res.locals.accountUrl = ""
   next()
  }
 }
@@ -165,11 +176,31 @@ Util.checkJWTToken = (req, res, next) => {
  * ************************************ */
  Util.checkLogin = (req, res, next) => {
   if (res.locals.loggedin) {
-    next()
+      next()
   } else {
     req.flash("notice", "Please log in.")
     return res.redirect("/account/login")
   }
  }
+
+ /* ****************************************
+ *  Chect Account Type
+ * ************************************ */
+Util.checkAccountType = (req, res, next) => {
+  if (res.locals.loggedin) {
+    if (res.locals.type === "Admin" || res.locals.type === "Employee") {
+        next()
+      } else {
+        req.flash("notice", "Your are not permitted to access this option")
+        res.clearCookie("jwt")
+        return res.redirect("/account/login")
+      }    
+  } else {
+    req.flash("notice", "Please log in.")
+    return res.redirect("/account/login")
+  }
+
+}
+
 
 module.exports = Util

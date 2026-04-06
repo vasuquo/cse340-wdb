@@ -1,0 +1,19 @@
+<h1><%= title %></h1>
+<%- messages() %>
+
+<% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
+
+<nav>
+    <ul class="inventory">
+        <li><a href="/account/edit/<%= account_id %>">Update Account</a></li>
+        <li><a href="/account/change/<%= account_id %>">Change Password</a></li>
+    </ul>
+</nav>
+
+
