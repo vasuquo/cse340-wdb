@@ -183,7 +183,7 @@ async function changePassword(req, res) {
     title: "Change Password for " + itemName,
     nav,
     errors: null,
-    account_id: itemData.account_id    
+    account_id  
   })
 }
 
@@ -203,7 +203,7 @@ async function updateAccount(req, res) {
 
   if (updateResult) {
     req.flash("notice", `Account successfully updated.`)
-    res.redirect("/account/")
+    res.redirect("/account/menu")
   } else {
     const itemName = `${account_firstname} ${account_lastname}`
     req.flash("notice", "Sorry, the update failed.")
@@ -220,12 +220,11 @@ async function updateAccount(req, res) {
 }
 
 /* ***************************
- *  Update password
+ *  Change password
  * ************************** */
 async function updatePassword(req, res) {
   let nav = await utilities.getNav()
   const {account_id, account_password} = req.body
-
   // Hash the password before storing
   let hashedPassword
   try {
@@ -246,8 +245,8 @@ async function updatePassword(req, res) {
   )
 
   if (updateResult) {
-    req.flash("notice", `Account successfully updated.`)
-    res.redirect("/account/")
+    req.flash("notice", `Password changed successfully.`)
+    res.redirect("/account/menu")
   } else {
     req.flash("notice", "Sorry, the update failed.")
     res.status(501).render("account/change-password", {

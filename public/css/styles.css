@@ -331,6 +331,26 @@ form {
   padding-top: 5px;
   font-weight: 600;
 }
+
+#t1 {
+  text-align: center;
+}
+
+#t2 {
+  text-align: center;
+  margin-top: 30px;
+}
+
+#t3, #t4, #t5 {
+  text-align: center;
+  margin: 30px 0;
+  font-size: 22px;
+}
+
+#t3 a, #t5 a {
+  text-decoration: none;
+  font-size: 22px;
+}
   
 
 
@@ -350,9 +370,10 @@ form {
 }
 
 #inventoryDisplay thead tr {
-    background-color: #009879;
+    background-color: black;
     color: #ffffff;
     text-align: left;
+    font-size: 20px;
 }
 
 #inventoryDisplay th,

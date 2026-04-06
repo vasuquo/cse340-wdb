@@ -67,7 +67,7 @@ async function updateAccount(
 ) {
   try {
     const sql =
-      "UPDATE public.inventory SET account_firstname = $1, account_lastname = $2, account_email = $3 WHERE account_id = $4 RETURNING *"
+      "UPDATE public.account SET account_firstname = $1, account_lastname = $2, account_email = $3 WHERE account_id = $4 RETURNING *"
     const data = await pool.query(sql, [
       account_firstname,
       account_lastname,
@@ -89,7 +89,7 @@ async function updatePassword(
 ) {
   try {
     const sql =
-      "UPDATE public.inventory SET account_password = $1 WHERE account_id = $2 RETURNING *"
+      "UPDATE public.account SET account_password = $1 WHERE account_id = $2 RETURNING *"
     const data = await pool.query(sql, [
       account_password,
       account_id

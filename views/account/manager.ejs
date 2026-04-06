@@ -1,5 +1,5 @@
 <% if (title) { %>
-<h1><%= title %></h1>
+<h1 id="t1"><%= title %></h1> <h2 id="t2">Welcome <%= fname %></h2>
 <% } else {
   res.redirect('/')
 } %>
@@ -14,13 +14,11 @@
  </ul>
 <% } %>
 
-<h2>Welcome <%= fname %></h2>
-
-<a href="/account/menu">Update account information</a>
+<p id="t3"><a href="/account/menu">Update account information</a></p>
 
 <% if (type === "Admin" || type === "Employee") { %>
-  <h3>Inventory Management</h3>
+  <h3 id="t4">Inventory Management</h3>
 
-  <p><a href="/inv">Click to access Inventory Management</a></p>
+  <p id="t5"><a href="/inv">Click to access Inventory Management</a></p>
 
 <%  } %>
