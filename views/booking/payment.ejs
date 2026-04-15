@@ -1,0 +1,26 @@
+<h1><%= title %></h1>
+<%- messages() %>
+
+<% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
+
+<div class="account-container">
+        <form action="/booking/payment" method="POST">
+            <div class="input-group">
+                <label for="service_id">Select your booking:</label>
+                <%- bookingList %>
+            </div>
+            <button type="submit">Book Now</button>
+            <input type="hidden" name="account_id"
+            <% if(locals.account_id) { %> value="<%= locals.account_id %>"
+            <% } %>>   
+        </form>
+</div>
+
+
+

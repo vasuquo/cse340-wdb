@@ -1,5 +1,5 @@
 <% if (title) { %>
-<h1 id="t1"><%= title %></h1> <h2 id="t2">Welcome <%= fname %></h2>
+<h1 id="t1"><%= title %></h1> 
 <% } else {
   res.redirect('/')
 } %>
@@ -14,7 +14,19 @@
  </ul>
 <% } %>
 
+<h2 id="t2">Welcome <%= fname %></h2>
+
 <p id="t3"><a href="/account/menu">Update account information</a></p>
+
+<% if (type === "Client") { %>
+  <section class="welcome">
+   <div class="booking-service">
+     <h2>Take adventage of our tour and rental services</h2>
+     <h3>Book your travel or vehicle now and enjoy a seamless experience.</h3>  
+     <a href="/booking/" class="booking-btn">Go to Booking</a>	   
+   </div>
+  </section>
+<%  } %>  
 
 <% if (type === "Admin" || type === "Employee") { %>
   <h3 id="t4">Inventory Management</h3>

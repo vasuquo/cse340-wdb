@@ -20,6 +20,30 @@ body {
   font-size: 18px;
 }
 
+.welcome {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.booking-service {
+  margin-top: 20px;
+}
+
+.booking-service h2 {
+  color: #1E88E5;
+}
+
+.booking-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #FF6F00;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+
 header, nav, h1, section {
   padding: 0 20px;
 }
@@ -343,13 +367,15 @@ form {
 
 #t3, #t4, #t5 {
   text-align: center;
-  margin: 30px 0;
+  margin: 20px 0;
   font-size: 22px;
 }
 
 #t3 a, #t5 a {
   text-decoration: none;
   font-size: 22px;
+  color: black;
+  font-weight: 500;
 }
   
 
@@ -385,6 +411,7 @@ form {
 .input-group input[type="email"],
 .input-group input[type="password"],
 .input-group input[type="number"],
+.input-group input[type="date"],
 select
 {
     width: calc(100% - 20px); /* Adjust for padding */

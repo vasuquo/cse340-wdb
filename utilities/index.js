@@ -1,4 +1,5 @@
 const invModel = require("../models/inventory-model")
+const bookingModel = require("../models/booking-model")
 const jwt = require("jsonwebtoken")
 require("dotenv").config()
 const Util = {}
@@ -201,6 +202,55 @@ Util.checkAccountType = (req, res, next) => {
   }
 
 }
+
+/* **************************************
+* Build the services select list
+* ************************************ */
+
+Util.buildServiceList = async function (service_id = null) {
+    let data = await bookingModel.getServices()
+    let servicesList =
+      '<select name="service_id" id="servicesList" required>'
+    servicesList += "<option value=''>Choose a Service</option>"
+    data.rows.forEach((row) => {
+      servicesList += '<option value="' + row.service_id + '"'
+      if (
+        service_id != null &&
+        row.service_id == service_id
+      ) {
+        servicesList += " selected "
+      }
+      servicesList += ">" + row.service_description + "</option>"
+    })
+    servicesList += "</select>"
+    return servicesList
+  }
+
+
+  /* **************************************
+* Build the Inventory select list
+* ************************************ */
+
+Util.buildInventoryList = async function (inv_id = null) {
+  let data = await invModel.getInventory()
+  let inventoryList =
+      '<select name="inv_id" id="inventoryList" required>'
+    inventoryList += "<option value=''>Choose a vehicle</option>"
+    data.rows.forEach((row) => {
+      inventoryList += '<option value="' + row.inv_id + '"'
+      if (
+        inv_id != null &&
+        row.inv_id == inv_id
+      ) {
+        inventoryList += " selected "
+      }
+      inventoryList += ">" + row.inv_make + " " + row.inv_model + "</option>"
+    })
+    inventoryList += "</select>"
+    return inventoryList
+}
+
+
 
 
 module.exports = Util

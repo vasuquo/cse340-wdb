@@ -1,0 +1,46 @@
+<% if (title) { %>
+<h1><%= title %></h1>
+<% } else {
+  res.redirect('/')
+} %>
+
+<%- messages() %>
+
+<% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
+
+<div class="account-container">
+        <form action="/booking/create" method="POST">
+            <div class="input-group">
+                <label for="service_id">Choose a Service Type:</label>
+                <%- servicesList %>
+            </div>
+            <div class="input-group">
+                <label for="inv_id">Choose a vehicle:</label>
+                <%- inventoryList %>
+            </div>
+            <div class="input-group">
+                <label for="booking_period">Service Duration (Days):</label>
+                <input type="number" id="bookingPeriod" name="booking_period" required value="<%= locals.booking_period %>">
+            </div>            
+            <div class="input-group">
+                <label for="booking_amount">Service Cost:</label>
+                <input type="number" id="bookingAmount" name="booking_amount" pattern="[0-9]+" readonly>
+            </div>
+            <div class="input-group">
+                <label for="booking_date">Comencement Date:</label>
+                <input type="date" id="bookingDate" name="booking_date" required value="<%= locals.booking_date %>">
+            </div>
+            <button type="submit">Book Now</button>
+            <input type="hidden" name="account_id"
+            <% if(locals.account_id) { %> value="<%= locals.account_id %>"
+            <% } %>>   
+        </form>
+</div>
+
+<script src="../../js/bookings.js"></script>

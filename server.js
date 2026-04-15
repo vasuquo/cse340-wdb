@@ -17,6 +17,7 @@ const app = express()
 const static = require("./routes/static")
 const inventoryRoute = require("./routes/inventoryRoute")
 const accountRoute = require("./routes/accountRoute")
+const bookingRoute = require("./routes/bookingRoute")
 const bodyParser = require("body-parser")
 const cookieParser = require("cookie-parser")
 
@@ -67,11 +68,11 @@ app.set("layout", "./layouts/layout") // not at views root
 app.use(static)
 
 // Index route
-// app.get("/", baseController.buildHome)
 app.get("/", utilities.handleErrors(baseController.buildHome))
 app.get("/oop", utilities.handleErrors(errorController.helloWorld))
 app.use("/inv", inventoryRoute)
 app.use("/account", accountRoute)
+app.use("/booking", bookingRoute)
 app.get('/favicon.ico', (req, res) => res.status(204));
 
 // File Not Found Route - must be last route in list
