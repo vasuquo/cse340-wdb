@@ -7,15 +7,6 @@ async function getServices(){
   return await pool.query("SELECT * FROM public.service_rates ORDER BY service_id")
 }
 
-/* ***************************
- *  Get booking data
- * ************************** */
-async function getBookings(account_id) {
-  return await pool.query("SELECT * FROM public.bookings b 
-    JOIN public.account a ON b.account_id = a.account_id 
-    WHERE b.account_id = $1", [account_id])
-}
-
 
 /* ***************************
  *  Get all services by service_id
@@ -50,4 +41,4 @@ async function createBooking(booking_date, booking_period, booking_amount, accou
 
 
 
-module.exports = { createBooking, getBookings, getServices, getServicesByServiceId };
+module.exports = { createBooking, getServices, getServicesByServiceId };

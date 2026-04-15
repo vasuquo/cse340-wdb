@@ -20,20 +20,11 @@ router.get("/getServices/:service_id",
     utilities.handleErrors(bookingController.getServicesJSON)
 )
 
-// Get booking data for AJAX route 
-router.get("/getBookings/:account_id", 
-    utilities.handleErrors(bookingController.getBookingsJSON)
-)
-
-
 // Route to initiate creation of bookin records
 router.post("/create", 
     bookValidate.bookingRules(),
     bookValidate.checkBookingData,
     utilities.handleErrors(bookingController.createBooking))
-
-
-
 
 
 

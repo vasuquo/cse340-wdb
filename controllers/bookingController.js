@@ -46,20 +46,6 @@ async function getServicesJSON (req, res, next) {
 }
 
 /* ****************************************
-*  Return booking data by booking_id as JSON
-* *************************************** */
-async function getBookingsJSON (req, res, next) {
-  const account_id = parseInt(req.params.account_id)
-  const bookingData = await bookingModel.getBookings(account_id)
-  if (bookingData[0].booking_id) {
-    return res.json(bookingData)
-  } else {
-    next(new Error("No data return"))
-  }
-}
-
-
-/* ****************************************
 *  Process Booking
 * *************************************** */
 async function createBooking(req, res) {
@@ -99,4 +85,4 @@ async function createBooking(req, res) {
 
 
 
-module.exports = {buildBookingView, buildMgtView, createBooking, getBookingsJSON, getServicesJSON}
+module.exports = {buildBookingView, buildMgtView, createBooking, getServicesJSON}
