@@ -27,10 +27,10 @@ async function getServicesByServiceId(service_id) {
 /* *****************************
 *   Create new booking
 * *************************** */
-async function createBooking(booking_date, booking_period, booking_amount, account_id, inv_id, service_id){
+async function createBooking(booking_description, booking_date, booking_period, booking_amount, account_id, inv_id, service_id){
   try {
-    const sql = "INSERT INTO bookings (booking_date, booking_period, booking_amount, account_id, inv_id, service_id, booking_status) VALUES (to_date($1, 'YYYY-MM-DD'), $2, $3, $4, $5, $6, 'Pending') RETURNING *"
-    const result = await pool.query(sql, [booking_date, booking_period, booking_amount, account_id, inv_id, service_id])
+    const sql = "INSERT INTO bookings (booking_description, booking_date, booking_period, booking_amount, account_id, inv_id, service_id, booking_status) VALUES ($1, to_date($2, 'YYYY-MM-DD'), $3, $4, $5, $6, $7, 'Pending') RETURNING *"
+    const result = await pool.query(sql, [booking_description, booking_date, booking_period, booking_amount, account_id, inv_id, service_id])
     console.log(result)
     return result
   } catch (error) {

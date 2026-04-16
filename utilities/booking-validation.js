@@ -28,6 +28,12 @@ const validate = {}
         .isLength({ min: 1 })
         .withMessage("Please provide a valid number."), 
 
+        body("booking_description")
+        .trim()
+        .escape()
+        .notEmpty()
+        .withMessage("Please provide a valid description."), 
+
         body("booking_date")
         .trim()
         .escape()
@@ -41,7 +47,7 @@ const validate = {}
  * Check data and return errors or continue to booking
  * ***************************** */
 validate.checkBookingData = async (req, res, next) => {
-    const { booking_date, booking_period, account_id, inv_id, service_id } = req.body
+    const { booking_description, booking_date, booking_period, account_id, inv_id, service_id } = req.body
       let errors = []
       errors = validationResult(req)
       if (!errors.isEmpty()) {
@@ -52,6 +58,7 @@ validate.checkBookingData = async (req, res, next) => {
           errors,
           title: "Create Booking",
           nav,
+          booking_description,
           booking_date, 
           booking_period, 
           account_id, 

@@ -50,9 +50,10 @@ async function getServicesJSON (req, res, next) {
 * *************************************** */
 async function createBooking(req, res) {
   let nav = await utilities.getNav()
-  const { booking_date, booking_period, booking_amount, account_id, inv_id, service_id } = req.body
+  const { booking_description, booking_date, booking_period, booking_amount, account_id, inv_id, service_id } = req.body
 
   const bookResult = await bookingModel.createBooking(
+    booking_description,
     booking_date, 
     booking_period, 
     booking_amount, 

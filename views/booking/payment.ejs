@@ -12,10 +12,9 @@
 <div class="account-container">
         <form action="/booking/payment" method="POST">
             <div class="input-group">
-                <label for="service_id">Select your booking:</label>
-                <%- bookingList %>
+                <label for="service_id">Payment for book Id:</label>
             </div>
-            <button type="submit">Book Now</button>
+            <button type="submit">Pay Now</button>
             <input type="hidden" name="account_id"
             <% if(locals.account_id) { %> value="<%= locals.account_id %>"
             <% } %>>   
